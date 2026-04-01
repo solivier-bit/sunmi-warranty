@@ -73,7 +73,7 @@ app.get('/warranty', async (req, res) => {
         sunmi_device:    true,
         serial:          d.machine_msn,
         device:          d.machine_name || d.machine_en_name,
-        warranty_status: d.machine_warranty_status === 1 ? 'In Warranty' : 'Out of Warranty',
+        warranty_status: d.machine_warranty_status === 1 ? 'Yes' : 'No',
         in_warranty:     d.machine_warranty_status === 1,
         expires:         d.machine_over_date,
         activated:       d.machine_active_date,
