@@ -58,7 +58,7 @@ async function checkWarranty(serialNumber) {
 
 // GET /warranty?sn=YOUR_SERIAL_NUMBER
 app.get('/warranty', async (req, res) => {
-  const { sn } = req.query;
+  const sn = req.query.sn ? req.query.sn.replace(/"/g, '').trim() : null;
 
   if (!sn) {
     return res.status(400).json({ error: 'Missing serial number. Use ?sn=YOUR_SERIAL_NUMBER' });
